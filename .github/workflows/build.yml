@@ -30,15 +30,11 @@ jobs:
         with:
           toolchain: stable
           
-      - name: Setup WIX Toolset (Windows only)
+      - name: Install NSIS (Windows only)
         if: matrix.platform == 'windows-latest'
         run: |
-          # Download and install WIX Toolset
-          Invoke-WebRequest -Uri "https://github.com/wixtoolset/wix3/releases/download/wix3141rtm/wix314-binaries.zip" -OutFile "wix314-binaries.zip"
-          Expand-Archive -Path "wix314-binaries.zip" -DestinationPath "C:\WixTools314"
-          # Add WIX to PATH
-          $env:PATH += ";C:\WixTools314"
-          echo "PATH=$env:PATH" >> $env:GITHUB_ENV
+          # Install NSIS using Chocolatey
+          choco install nsis -y
         shell: pwsh
         
       - name: Install dependencies
