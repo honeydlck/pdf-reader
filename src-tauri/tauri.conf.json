@@ -34,12 +34,8 @@
       "icons/icon.ico"
     ],
     "windows": {
-      "nsis": {
-        "active": true
-      },
-      "msi": {
-        "active": false
-      }
+      "nsis": null,
+      "wix": null
     }
   }
 }
